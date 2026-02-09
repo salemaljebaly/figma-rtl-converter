@@ -23,7 +23,7 @@ async function loadSavedKey() {
     if (key) {
       figma.ui.postMessage({ type: "key-loaded", key });
     }
-  } catch (e) {}
+  } catch (e) { }
 }
 loadSavedKey();
 
@@ -101,9 +101,6 @@ function sleep(ms) {
 async function translateWithGemini(apiKey, texts, targetLang) {
   const langNames = {
     ar: "Arabic",
-    he: "Hebrew",
-    fa: "Persian",
-    ur: "Urdu",
   };
   const langName = langNames[targetLang] || "Arabic";
 
@@ -268,7 +265,7 @@ async function loadTargetFont(fontFamily) {
     try {
       await figma.loadFontAsync({ family: fontFamily, style });
       loaded[style] = { family: fontFamily, style };
-    } catch (e) {}
+    } catch (e) { }
   }
 
   return loaded;
@@ -372,7 +369,7 @@ async function rightAlignAllText(page) {
       }
       node.textAlignHorizontal = "RIGHT";
       count++;
-    } catch (e) {}
+    } catch (e) { }
   }
 
   return count;
@@ -404,7 +401,7 @@ function mirrorHorizontalLayouts(root) {
           node.counterAxisAlignItems = "MAX";
         }
       }
-    } catch (e) {}
+    } catch (e) { }
 
     // Always recurse into children
     for (const child of [...node.children]) {
@@ -442,7 +439,7 @@ function mirrorFixedPositions(root) {
               child.x = newX;
               mirrored++;
             }
-          } catch (e) {}
+          } catch (e) { }
         }
       }
     }
